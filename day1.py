@@ -1,9 +1,7 @@
 def func1():
     total = 0
-    while True:
-        line = input()
-        if line == 'end':
-            break
+    inputs = [line.rstrip('\n') for line in open("d1.input")]
+    for line in inputs:
         if line[0] == '+':
             total += int(line[1:])
         else:
@@ -14,13 +12,7 @@ def func2():
     total = 0
     dic = {}
     dic[total] = True
-    inputs = []
-    while True:
-        line = input()
-        if line == "end":
-            break
-        inputs.append(line)
-
+    inputs = [line.rstrip('\n') for line in open("d1.input")]
     while True:
         for line in inputs:
             if line[0] == '+':
@@ -30,3 +22,6 @@ def func2():
             if total in dic:
                 return total
             dic[total] = True
+            
+func1()
+print(func2())

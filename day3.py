@@ -5,11 +5,7 @@ def func1():
     for i in range(1000):
         matrix.append([0]*1000)
     
-    while True:
-        line = input()
-        if line == "end":
-            break
-        inputs.append(line)
+    inputs = [line.rstrip('\n') for line in open("d3.input")]
 
     for line in inputs:
         line = line.split('@')
@@ -35,17 +31,12 @@ def func1():
     print(total)
 
 def func2():
-    inputs = []
     matrix = []
 
     for i in range(1000):
         matrix.append([0]*1000)
     
-    while True:
-        line = input()
-        if line == "end":
-            break
-        inputs.append(line)
+    inputs = [line.rstrip('\n') for line in open("d3.input")]
 
     for line in inputs:
         line = line.split('@')
@@ -83,4 +74,7 @@ def func2():
                 if matrix[x][y]!=1:
                     isEmpty = False
         if isEmpty == True:
-            return id
+            return id[1:]
+
+func1()
+print(func2())
